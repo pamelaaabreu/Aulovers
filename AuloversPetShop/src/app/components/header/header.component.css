@@ -39,8 +39,9 @@ nav {
   align-items: center;              
 }
 
-.logo img {
-  max-width: 95px;       
+.logo svg {
+  max-width: 95px;  
+  padding: 10px;     
 }
 
 .petShopName {
