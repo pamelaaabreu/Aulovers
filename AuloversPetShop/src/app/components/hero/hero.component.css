@@ -1,4 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
 .hero {
-    background-color: #f9f9f9;
+  position: relative;
+  background-color: #f9f9f9;
+  width: 100%;
+  height: calc(100vh - 65px);
+  margin-top: 65px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-text-overlay {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #c46d25;
+  z-index: 2;
+  width: 90%;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 4.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: "DM Serif Display", serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  letter-spacing: 4.5px;
+}
+
+.hero-subtitle {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 3.5rem 0 3.5rem;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: #e8672e;
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(246, 140, 100, 0.4);
+  border: none;
+  cursor: pointer;
+}
+
+.hero-cta:hover {
+  background-color: #c65420;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 103, 46, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .hero-cta {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .hero-text-overlay {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  .hero-cta {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+.paws-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.paws-container svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.paws-container svg:nth-child(1) {
+  top: 20rem;
+  left: 0;
+  transform: rotate(-15deg) scale(1);
+}
+
+.paws-container svg:nth-child(2) {
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%) rotate(20deg) scale(1);
+}
+
+.hero:hover .paws-container svg:nth-child(1) {
+  animation: pawFloatLeft 1.2s ease-in-out infinite alternate;
+}
+
+.hero:hover .paws-container svg:nth-child(2) {
+  animation: pawFloatRight 1.2s ease-in-out infinite alternate 0.3s;
+}
+
+@keyframes pawFloatLeft {
+  0% {
+    transform: translateY(0) rotate(-15deg) scale(1);
+  }
+  100% {
+    transform: translateY(-10px) rotate(-20deg) scale(1.1);
+  }
+}
+
+@keyframes pawFloatRight {
+  0% {
+    transform: translateY(0) rotate(20deg) scale(1);
+  }
+  100% {
+    transform: translateY(-12px) rotate(25deg) scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .paws-container svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .paws-container svg:nth-child(1) {
+    top: 18rem;
+    left: 0.5rem;
+    transform: rotate(-15deg) scale(1);
+  }
+
+  .paws-container svg:nth-child(2) {
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%) rotate(20deg) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .paws-container svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .paws-container svg:nth-child(1) {
+    top: 16rem;
+    left: 0.5rem;
+    transform: rotate(-15deg) scale(1);
+  }
+
+  .paws-container svg:nth-child(2) {
+    top: 48%;
+    right: -3px;
+    transform: translateY(-50%) rotate(20deg) scale(1);
+  }
+}
