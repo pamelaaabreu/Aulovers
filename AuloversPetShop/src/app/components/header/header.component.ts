@@ -1,17 +1,30 @@
 import { Component, HostListener } from '@angular/core';
-import { HeroComponent } from '../hero/hero.component';
 
 @Component({
   selector: 'app-header',
-  imports: [HeroComponent],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  isMenuOpen: boolean = false;
+  activeSection: string = 'whoWeAre';
 
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const sections = ['whoWeAre', 'services', 'benefits', 'contact'];
+    const scrollPosition = window.pageYOffset + 100; // 100px de offset para melhorar o efeito
+
+    for (let section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const top = element.offsetTop;
+        const height = element.offsetHeight;
+
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          this.activeSection = section;
+          break;
+        }
+      }
+    }
   }
-
 }

@@ -1,5 +1,228 @@
-#whoWeAre {
-    background-color: #f9f9f9;
-    padding: 50px 20px;
-    text-align: center;
+.who-we-are {
+  background-color: #fff7f1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
+
+.who-we-are .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-tag {
+  font-size: 4.1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-family: "DM Serif Display", serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  letter-spacing: 2.5px;
+  color: #c65420;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-family: "Nunito Sans", sans-serif;
+  color: #e8672e;
+  font-weight: 600;
+}
+
+.card-one {
+  font-size: 2rem;
+  font-family: "DM Serif Display", serif;
+  color: #e8672e;
+}
+
+.subtitle-card-one {
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  color: #c65420;
+  font-weight: 600;
+  line-height: 1.6;
+  padding: 7.5px;
+}
+
+.emphasis {
+  color: #c65420;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1rem;
+  background: #fff3ea;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.main-title {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+/* Seção da história */
+.story-section {
+  margin-bottom: 80px;
+}
+
+.story-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Alternância: direita/esquerda */
+.story-section.reverse .story-grid {
+  flex-direction: row-reverse;
+}
+
+/* Contêiner imagem com coração */
+.story-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -30px;
+}
+
+/* Imagem da founder */
+.story-image {
+  width: 230px;
+  height: 230px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px solid #f68c64;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+  transform: scale(1.03);
+}
+
+/* Efeito de sobreposição */
+.story-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(198, 84, 32, 0.1),
+    rgba(198, 84, 32, 0.3)
+  );
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* Ícone do coração */
+.heart-icon {
+  position: absolute;
+  top: -10px;
+  left: 17px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  animation: flutter 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes flutter {
+  0%,
+  100% {
+    transform: rotate(-25deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-20deg) translateY(-5px);
+  }
+}
+
+/* Hover na imagem */
+.story-image:hover + .heart-icon {
+  transform: rotate(-15deg) scale(1.1);
+  animation: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .section-tag {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .story-grid {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .story-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .heart-icon {
+    top: -5px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-tag {
+    font-size: 2.5rem;
+  }
+
+  .story-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .heart-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+

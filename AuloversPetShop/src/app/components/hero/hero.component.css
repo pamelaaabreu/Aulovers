@@ -7,32 +7,57 @@
   width: 100%;
   height: calc(100vh - 65px);
   margin-top: 65px;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 70%;
   z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero {
+  position: relative;
+  background-color: #f9f9f9;
+  width: 100%;
+  height: calc(100vh - 65px);
+  margin-top: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .hero-text-overlay {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #c46d25;
   z-index: 2;
-  width: 90%;
   max-width: 800px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease 0.3s forwards;
 }
 
 .hero-title {
@@ -42,24 +67,27 @@
   font-family: "DM Serif Display", serif;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   line-height: 1;
-  letter-spacing: 4.5px;
+  letter-spacing: 2.5px;
+  color: #c65420;
 }
 
 .hero-subtitle {
   font-family: "Nunito Sans", sans-serif;
-  margin: 3.5rem 0 3.5rem;
+  margin: 3.5rem 0;
   font-size: 1.8rem;
   line-height: 1.6;
+  color: #c65420;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Botão CTA */
 .hero-cta {
   display: inline-block;
   background-color: #e8672e;
   color: #ffffff;
   padding: 15px 30px;
   border-radius: 30px;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
   font-size: 1.2rem;
   text-decoration: none;
@@ -75,50 +103,11 @@
   box-shadow: 0 6px 20px rgba(232, 103, 46, 0.5);
 }
 
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    margin: 1rem 0 1.5rem;
-  }
-
-  .hero-cta {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-
-  .hero-text-overlay {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    margin: 0.8rem 0 1.2rem;
-  }
-
-  .hero-cta {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-}
-
+/* Animações das patas */
 .paws-container {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible;
   z-index: 2;
   pointer-events: none;
 }
@@ -127,31 +116,28 @@
   width: 40px;
   height: 40px;
   opacity: 0.9;
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
   position: absolute;
   transition: all 0.5s ease;
 }
 
+/* Pata 1 */
 .paws-container svg:nth-child(1) {
   top: 20rem;
-  left: 0;
+  left: 0.5rem;
   transform: rotate(-15deg) scale(1);
-}
-
-.paws-container svg:nth-child(2) {
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%) rotate(20deg) scale(1);
-}
-
-.hero:hover .paws-container svg:nth-child(1) {
   animation: pawFloatLeft 1.2s ease-in-out infinite alternate;
 }
 
-.hero:hover .paws-container svg:nth-child(2) {
+/* Pata 2 */
+.paws-container svg:nth-child(2) {
+  top: 50%;
+  right: -50px;
+  transform: translateY(-50%) rotate(20deg) scale(1);
   animation: pawFloatRight 1.2s ease-in-out infinite alternate 0.3s;
 }
 
+/* Flutuação das patas */
 @keyframes pawFloatLeft {
   0% {
     transform: translateY(0) rotate(-15deg) scale(1);
@@ -170,40 +156,45 @@
   }
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+  }
+
+  .hero-cta {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
   .paws-container svg {
     width: 30px;
     height: 30px;
   }
-
-  .paws-container svg:nth-child(1) {
-    top: 18rem;
-    left: 0.5rem;
-    transform: rotate(-15deg) scale(1);
-  }
-
-  .paws-container svg:nth-child(2) {
-    top: 50%;
-    right: -5px;
-    transform: translateY(-50%) rotate(20deg) scale(1);
-  }
 }
 
 @media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+
+  .hero-cta {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
   .paws-container svg {
     width: 24px;
     height: 24px;
-  }
-
-  .paws-container svg:nth-child(1) {
-    top: 16rem;
-    left: 0.5rem;
-    transform: rotate(-15deg) scale(1);
-  }
-
-  .paws-container svg:nth-child(2) {
-    top: 48%;
-    right: -3px;
-    transform: translateY(-50%) rotate(20deg) scale(1);
   }
 }

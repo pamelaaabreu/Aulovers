@@ -1,0 +1,53 @@
+<div class="team-section">
+  <h3 class="team-title">Conheça nossa equipe 💛</h3>
+  <p class="team-subtitle">
+    Contamos com uma equipe de 10 profissionais especializados, desde
+    veterinários até tosadores certificados, todos compartilhando o mesmo
+    compromisso:
+    <span class="emphasis">tratar cada pet como se fosse nosso.</span>
+  </p>
+
+  <div class="carousel-container" 
+       (mouseenter)="onMouseEnter()" 
+       (mouseleave)="onMouseLeave()">
+    <div #track class="carousel-track">
+      <div class="carousel-slide" *ngFor="let member of teamMembers">
+        <div class="team-card">
+          <div class="card-image">
+            <img [src]="member.image" [alt]="member.name">
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <h4>{{ member.name }}</h4>
+              <span class="card-badge" [class]="member.badgeClass">{{ member.role }}</span>
+            </div>
+            <p class="card-description">{{ member.description }}</p>
+            <div class="card-tags">
+              <span *ngFor="let tag of member.tags">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn carousel-prev" (click)="prevSlide()" aria-label="Slide anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="#E8672E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="carousel-btn carousel-next" (click)="nextSlide()" aria-label="Próximo slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 6L15 12L9 18" stroke="#E8672E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="carousel-indicators">
+      <button *ngFor="let _ of teamMembers; let i = index" 
+              class="indicator" 
+              [class.active]="i === currentIndex"
+              (click)="goToSlide(i)"
+              [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
+    </div>
+  </div>
+</div>
