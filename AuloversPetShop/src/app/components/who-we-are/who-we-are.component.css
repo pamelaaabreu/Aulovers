@@ -69,18 +69,16 @@
   background: #fff3ea;
   padding: 3px 8px;
   border-radius: 8px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
-
 
 .main-title {
   font-size: 1.1rem;
-  color: #555;
+  color: #4b3f39;
   line-height: 1.8;
   max-width: 800px;
 }
 
-/* Seção da história */
 .story-section {
   margin-bottom: 80px;
 }
@@ -95,12 +93,18 @@
   padding: 60px 20px;
 }
 
-/* Alternância: direita/esquerda */
 .story-section.reverse .story-grid {
   flex-direction: row-reverse;
 }
 
-/* Contêiner imagem com coração */
+.story-image {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(232, 103, 46, 0.5);
+}
+
 .story-image-container {
   position: relative;
   display: flex;
@@ -109,20 +113,13 @@
   margin-top: -30px;
 }
 
-/* Imagem da founder */
-.story-image {
-  width: 230px;
-  height: 230px;
-  overflow: hidden;
+/* Imagem da founder - REDONDA COM BORDA */
+.story-image-container .story-image img {
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   border: 4px solid #f68c64;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.story-image img {
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 0 10px rgba(232, 103, 46, 0.5);
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
@@ -132,7 +129,6 @@
   transform: scale(1.03);
 }
 
-/* Efeito de sobreposição */
 .story-image::before {
   content: "";
   position: absolute;
@@ -140,11 +136,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(198, 84, 32, 0.1),
-    rgba(198, 84, 32, 0.3)
-  );
   z-index: 1;
   mix-blend-mode: multiply;
 }
@@ -224,5 +215,242 @@
   }
 }
 
+/* Seção evolução com fundo */
+.evolution-section {
+  background-color: #fff3ea;
+  border-radius: 20px;
+  padding: 40px 20px;
+  margin: 60px auto;
+  max-width: 950px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
 
+.evolution-section .subtitle {
+  font-size: 2rem;
+  color: #e8672e;
+  font-family: "DM Serif Display", serif;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
 
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: #e8672e;
+}
+
+.title-with-icon svg.svg-icon {
+  width: 28px;
+  height: 28px;
+  fill: #e8672e;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.title-with-icon:hover .svg-icon {
+  transform: scale(1.1);
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.milestone {
+  flex: 1;
+  background-color: #fff3ea;
+  margin: 0 10px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px dashed #e8672e; /* borda pontilhada */
+  box-shadow: 0 2px 6px rgb(255 134 92 / 0.3);
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  color: #e8672e;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(232, 103, 46, 0.1);
+}
+
+.milestone h4 {
+  font-size: 1.5rem;
+  color: #c65420;
+  font-family: "DM Serif Display", serif;
+  margin-bottom: 10px;
+}
+
+.milestone p {
+  font-size: 0.95rem;
+  color: #4b3f39;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.6;
+}
+
+/* Responsivo para timeline */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .milestone {
+    max-width: 100%;
+    width: 90%;
+    margin: 10px 0;
+  }
+}
+
+/* Wrapper para missão e valores */
+.mission-values-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+.card {
+  background-color: #fff7f1;
+  padding: 30px 25px;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(198, 84, 32, 0.08);
+  max-width: 450px;
+  flex: 1 1 300px;
+  animation: fadeIn 1.2s ease;
+}
+
+.card h4 {
+  font-size: 1.8rem;
+  color: #c65420;
+  font-family: "DM Serif Display", serif;
+  margin-bottom: 20px;
+}
+
+.mission-card p {
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  color: #4b3f39;
+  line-height: 1.6;
+}
+
+/* Lista de valores com contadores passo a passo */
+.values-steps {
+  list-style: none;
+  counter-reset: step-counter;
+  padding-left: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #4b3f39;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.values-steps li {
+  position: relative;
+  margin-bottom: 15px;
+  padding-left: 35px;
+  counter-increment: step-counter;
+}
+
+.values-steps li strong {
+  font-weight: bold;
+  color: #4b3f39;
+}
+
+.values-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #e8672e;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* Chamada para ação */
+.cta-section {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  color: #4b3f39;
+  margin-bottom: 30px;
+  
+}
+
+.cta-button {
+  background-color: #e8672e;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-family: "Nunito Sans", sans-serif;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c65420;
+}
+
+/* Ajustes menores para responsividade geral */
+@media (max-width: 768px) {
+  .section-tag {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .story-grid {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .story-image-container {
+    margin-top: 0;
+  }
+
+  .story-image-container .story-image img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-tag {
+    font-size: 2.5rem;
+  }
+
+  .story-image-container .story-image img {
+    width: 180px;
+    height: 180px;
+  }
+}
